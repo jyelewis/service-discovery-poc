@@ -25,7 +25,7 @@ interface Device {
 const neighbourDevices = new Map<string, Device>(); // mapped by IP Address
 
 function fmtRow(msgs: string[]): string {
-    return msgs.map(msg => msg.padEnd(COLLENGTH, ' ')).join('|');
+    return msgs.map(msg => msg.padEnd(COLLENGTH, ' ')).join('| ');
 }
 
 async function displayNeighbourDevices() {
@@ -41,6 +41,7 @@ async function displayNeighbourDevices() {
         connectedNeighbourDevices.sort((a, b) => a.ipAddress.localeCompare(b.ipAddress));
 
         console.log(fmtRow(['IP Address', 'Hostname', 'Platform', 'Free Memory (MB)']));
+        console.log(fmtRow(['-------------------', '-------------------', '-------------------', '-------------------']));
         for (const connectedNeighbourDevice of connectedNeighbourDevices) {
             console.log(fmtRow([
                 connectedNeighbourDevice.ipAddress,
