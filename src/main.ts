@@ -57,8 +57,8 @@ async function displayNeighbourDevices() {
     // clear the terminal
     console.log("\x1b[2J");
 
-    // filter down to devices we've seen in the past 2 seconds
-    const lastUpdateCutOff = Date.now() - 1000 * 2;
+    // filter down to devices we've seen in the past 3 seconds
+    const lastUpdateCutOff = Date.now() - 1000 * 3;
     const connectedNeighbourDevices = Array.from(
       neighbourDevices.values(),
     ).filter((device) => device.lastUpdate > lastUpdateCutOff);
